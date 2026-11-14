@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#172554" />
+    <meta
+      name="description"
+      content="KidzTech tutor class schedule and Google Meet assistant."
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon-192.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>KidzTech Meeting Assistant</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">KT</div>
+          <div>
+            <strong>KidzTech</strong><span>Meeting Assistant <b>v2.0</b></span>
+          </div>
+        </div>
+        <button id="installBtn" class="install-btn" hidden>Install app</button>
+      </header>
+      <main>
+        <section class="welcome">
+          <div>
+            <p class="eyebrow">TUTOR WORKSPACE</p>
+            <h1>Your class schedule</h1>
+            <p class="subheading">All your scheduled classes, in one place.</p>
+          </div>
+          <button
+            id="refreshBtn"
+            class="refresh-btn"
+            aria-label="Refresh schedule"
+          >
+            ↻ <span>Refresh</span>
+          </button>
+        </section>
+        <section id="errorBox" class="notice error" hidden></section>
+        <section id="infoBox" class="notice" hidden></section>
+        <section class="stats">
+          <article class="stat-card">
+            <span>Classes this week</span><strong id="totalCount">—</strong>
+          </article>
+          <article class="stat-card">
+            <span>Today's classes</span><strong id="todayCount">—</strong>
+          </article>
+          <article class="stat-card">
+            <span>Next class</span><strong id="nextCountdown">—</strong>
+          </article>
+        </section>
+        <section class="toolbar">
+          <div>
+            <h2>Schedule</h2>
+            <p id="scheduleTitle">Loading your schedule…</p>
+          </div>
+          <select id="dayFilter" aria-label="Filter schedule">
+            <option value="all">All days</option>
+            <option value="today">Today only</option>
+            <option value="upcoming">Today and upcoming</option>
+          </select>
+        </section>
+        <section id="scheduleList" class="schedule-list">
+          <div class="empty loading">Connecting to the KidzTech portal…</div>
+        </section>
+        <section class="settings-card">
+          <div>
+            <h3>Portal connection</h3>
+            <p id="connectionText">
+              Using the KidzTech weekly schedule endpoint.
+            </p>
+          </div>
+          <label class="switch-row"
+            ><span>Class reminders while app is open</span
+            ><input id="remindersToggle" type="checkbox" checked
+          /></label>
+          <button id="importBtn" class="text-button">
+            Import schedule JSON
+          </button>
+          <input
+            id="jsonFile"
+            type="file"
+            accept="application/json,.json"
+            hidden
+          />
+        </section>
+        <p class="footer-note">
+          Times are displayed in Nigeria time (Africa/Lagos). Opening Meet does
+          not automatically join the class or mark attendance. (c) 2026 Ajetech
+          IT Solutions. All rights reserved.
+        </p>
+      </main>
+      <nav class="bottom-nav">
+        <span class="active">▦ <small>Schedule</small></span
+        ><a
+          href="https://portal.kidztech.edubeta.net.ng/tutor/dashboard"
+          target="_blank"
+          rel="noopener"
+          >↗ <small>Tutor portal</small></a
+        >
+      </nav>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
